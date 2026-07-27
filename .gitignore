@@ -1,0 +1,19 @@
+# Python 临时文件
+__pycache__/
+*.pyc
+
+# Python 虚拟环境
+.venv/
+venv/
+
+# 不要上传大模型和 LoRA
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+
+# 不要上传密钥、账号配置
+.env
+
+# Forge / WebUI 的大量原始输出图
+outputs/
