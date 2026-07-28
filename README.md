@@ -15,3 +15,11 @@
 ## Current Experiment
 
 - [001: LoRA Weight Sweep](./experiments/001-lora-weight-sweep/)
+
+## Utilities
+
+Generate a labeled comparison grid from an image folder:
+
+```powershell
+python scripts/make_grid.py --input assets/001-lora-weight-sweep --output assets/001-lora-weight-sweep/grid.jpg --columns 5 --cell-width 300
+```

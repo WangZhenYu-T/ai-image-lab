@@ -64,6 +64,10 @@ LoRA weight:
 
 ## Results
 
+### Overview
+
+![LoRA weight sweep overview](../../assets/001-lora-weight-sweep/grid.jpg)
+
 ### Weight 0.00
 
 ![LoRA weight 0.00](../../assets/001-lora-weight-sweep/weight-0.00.png)
