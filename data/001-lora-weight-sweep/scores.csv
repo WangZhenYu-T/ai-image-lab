@@ -1,0 +1,6 @@
+seed,lora_weight,style_strength,aesthetic_quality,coordination,artifact_level,notes
+3820235668,0.00,1,2,1,1,基础无相似风格干扰
+3820235668,0.25,1,2,3,1,质感提升
+3820235668,0.50,2,5,5,1,最和谐的比例
+3820235668,0.75,3,4,4,1,lora特征开始凸显
+3820235668,1.00,5,3,3,3,lora风格完全覆盖溢出

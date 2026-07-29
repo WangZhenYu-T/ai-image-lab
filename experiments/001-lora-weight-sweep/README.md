@@ -68,6 +68,10 @@ LoRA weight:
 
 ![LoRA weight sweep overview](../../assets/001-lora-weight-sweep/grid.jpg)
 
+### Subjective Score Curves
+
+![Subjective score curves](../../assets/001-lora-weight-sweep/score-curves.png)
+
 ### Weight 0.00
 
 ![LoRA weight 0.00](../../assets/001-lora-weight-sweep/weight-0.00.png)
@@ -88,6 +92,18 @@ LoRA weight:
 
 ![LoRA weight 1.00](../../assets/001-lora-weight-sweep/weight-1.00.png)
 
+## Scoring Method
+
+Each image was scored by one evaluator (myself) on a 1–5 scale.
+
+- **Style strength**: how clearly the tested LoRA's target visual features appear.
+- **Aesthetic quality**: my personal judgment of the image's overall visual appeal.
+- **Coordination**: how naturally the tested LoRA works with the checkpoint, fixed LoRAs, and prompt.
+- **Artifact level**: visible artifacts or structural problems; higher means worse.
+
+The scores are subjective annotations for organizing my observations.
+They are not objective quality metrics and should not be interpreted as statistical evidence.
+
 ## Observations
 
 - Weight 0.00：几乎没有观察到目标 LoRA 的风格特征；由于本实验预先设计该lora为核心画风权重，因此缺失该lora之后图片质感较差，光效等都非常粗糙。
@@ -104,6 +120,8 @@ LoRA weight:
 - 只使用了一个 seed，无法排除随机初始噪声造成的偶然差异。
 - 风格强度、美感、结构质量和 LoRA 间协调性目前由单人主观判断，尚未建立量化评分标准。
 - 测试 LoRA 与其他固定 LoRA 可能存在相互作用，因此不能将观察到的变化完全解释为测试 LoRA 的孤立属性。
+- 这些分数均仅由我自己主观评出，仅代表个人审美
+- 评分维度仅属于有序型主观标注，并不代表存在固定量化差距
 
 ## Next Step
 

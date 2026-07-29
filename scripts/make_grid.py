@@ -8,12 +8,16 @@ from PIL import Image, ImageDraw, ImageFont
 SUPPORTED_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 
 
-def find_images(input_dir: Path) -> list[Path]:
-    """Find supported image files in the input directory, sorted by filename."""
+def find_images(input_dir: Path, output_path: Path) -> list[Path]:
+    """Find supported input images, excluding the output file itself."""
+    output_path = output_path.resolve()
+
     images = [
         path
         for path in input_dir.iterdir()
-        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
+        if path.is_file()
+        and path.suffix.lower() in SUPPORTED_EXTENSIONS
+        and path.resolve() != output_path
     ]
     return sorted(images, key=lambda path: path.name)
 
@@ -91,7 +95,7 @@ def parse_args() -> argparse.Namespace:
         "--cell-width",
         type=int,
         default=420,
-        help="Width of each image cell in pixels. Default: 360.",
+        help="Width of each image cell in pixels. Default: 420.",
     )
     return parser.parse_args()
 
@@ -106,7 +110,7 @@ def main() -> None:
         raise NotADirectoryError(f"Input directory does not exist: {input_dir}")
 
     make_grid(
-        image_paths=find_images(input_dir),
+        image_paths=find_images(input_dir, output_path),
         output_path=output_path,
         columns=args.columns,
         cell_width=args.cell_width,
