@@ -1,0 +1,55 @@
+{
+  "experiment_id": "001-lora-weight-sweep",
+  "title": "LoRA Weight Sweep",
+  "question": "Under fixed generation and Hires.fix settings, how does the tested LoRA weight affect final image style strength, aesthetic quality, coordination, and artifact level?",
+  "tested_lora": {
+    "name": "CunnyFunkyXLillokrV6311P"
+  },
+  "tested_variable": {
+    "name": "tested_lora_weight",
+    "values": [0.0, 0.25, 0.5, 0.75, 1.0]
+  },
+  "seeds": [2637220376, 2918477882, 3820235668],
+  "generation": {
+    "interface": "Forge WebUI",
+    "checkpoint": "chenkinNoobXLCKXL_v02",
+    "vae": null,
+    "prompt_reference": "README.md / Controlled Variables / Prompt",
+    "negative_prompt_reference": "README.md / Controlled Variables / Negative prompt",
+    "sampler": "DPM++ 2M Karras",
+    "steps": 35,
+    "cfg_scale": 7.0,
+    "base_resolution": [600, 900]
+  },
+  "fixed_loras": [
+    {"name": "颜染_Wan21-14B-720P", "weight": 0.5},
+    {"name": "幻月重光_暖色滤镜_0.1", "weight": 0.5},
+    {"name": "踏绛", "weight": 0.6},
+    {"name": "20250514-1747231472827", "weight": 0.4},
+    {"name": "VOGUE_Fashion_Magazine_Cover_Vintage_1960-1975_SDXL", "weight": 2.0}
+  ],
+  "hires_fix": {
+    "enabled": true,
+    "module_1": "Use same choices",
+    "cfg_scale": 5,
+    "upscale": 2,
+    "steps": 20,
+    "upscaler": "R-ESRGAN 4x+ Anime6B",
+    "final_resolution_approx": [1200, 1800]
+  },
+  "evaluation": {
+    "evaluator_count": 1,
+    "score_range": [1, 5],
+    "dimensions": {
+      "style_strength": "How clearly the tested LoRA target visual features appear.",
+      "aesthetic_quality": "The evaluator's personal judgment of overall visual appeal and completeness.",
+      "coordination": "How naturally the tested LoRA works with the checkpoint, fixed LoRAs, and prompt.",
+      "artifact_level": "Visible artifacts or structural problems; higher means worse."
+    }
+  },
+  "notes": [
+    "All ratings refer to final Hires.fix outputs rather than base-resolution images.",
+    "The full prompt and negative prompt remain in README.md because the public prompt record includes content the author may wish to keep under manual review.",
+    "This experiment has three seeds and one evaluator; it is exploratory rather than strong statistical evidence."
+  ]
+}

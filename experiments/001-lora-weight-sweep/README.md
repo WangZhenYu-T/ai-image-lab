@@ -28,6 +28,8 @@ LoRA 鏉冮噸鐨勫彉鍖栦細鎬庢牱褰卞搷鐢熸垚缁撴灉锛?
 
 ## Controlled Variables
 
+完整的机器可读实验配置见 [`config.json`](./config.json)。本 README 保留主要参数摘要，并用于说明实验结果、观察与局限；`config.json` 集中记录 checkpoint、LoRA、seed、采样与 Hires.fix 参数。
+
 - Checkpoint: chenkinNoobXLCKXL_v02
 - 鍥哄畾LoRA:
   - < lora:棣ㄦ煋_Wan21-14B-720P:0.5 >
@@ -188,3 +190,13 @@ Hires.fix 鍙傛暟鏈€鍒濇湭琚褰曪紱鍦ㄦ墿灞曡嚦澶?seed �
 ## Updated Next Step
 
 鍦ㄥ浐瀹?CunnyFunky 鏉冮噸鐨勬潯浠朵笅锛屾壂鎻忎竴涓緟鍔?LoRA 鐨勬潈閲嶏紝杩涗竴姝ョ爺绌跺涓?LoRA 鍚屾椂浣跨敤鏃剁殑鍗忚皟鎬т笌鐩镐簰浣滅敤銆備篃鍙互澧炲姞涓嶅悓 prompt锛屼互鍖哄垎 seed 閫犳垚鐨勬尝鍔ㄤ笌 prompt 閫犳垚鐨勬潯浠跺彉鍖栥€?
+
+## Validation
+
+可通过下面的命令检查配置与评分表是否一致：
+
+```powershell
+python scripts/validate_experiment_config.py --config experiments/001-lora-weight-sweep/config.json --scores data/001-lora-weight-sweep/scores.csv
+```
+
+该脚本会检查 seed 集合、LoRA 权重集合、评分范围以及评分表行数是否一致。
